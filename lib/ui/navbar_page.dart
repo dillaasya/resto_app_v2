@@ -17,7 +17,6 @@ class NavbarPage extends StatefulWidget {
 }
 
 class _NavbarPageState extends State<NavbarPage> {
-
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[

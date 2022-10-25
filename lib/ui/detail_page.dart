@@ -235,9 +235,6 @@ class _DetailPageState extends State<DetailPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Card(
-        // color: theme.getTheme() == theme.lightTheme
-        //     ? Colors.grey.shade200
-        //     : Colors.grey.shade800,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -33,7 +33,6 @@ class FirstCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
                 Positioned(
                     top: 8,
                     left: 8,
