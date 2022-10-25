@@ -25,7 +25,9 @@ class _HomePageState extends State<HomePage> {
     final theme = Provider.of<ThemeNotifier>(context, listen: true);
 
     return SingleChildScrollView(
-      child: Column(
+      child: 
+      
+      Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -93,11 +95,13 @@ class _HomePageState extends State<HomePage> {
           _buildSecondaryCarousel(),
         ],
       ),
+
+
     );
   }
 
   Padding _subHeader(BuildContext context, String title) {
-    var init = Provider.of<ListProvider>(context, listen: true);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -114,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return ListAllPage(restaurant: init.result.restaurants);
+                    return const ListAllPage();
                   },
                 ),
               );

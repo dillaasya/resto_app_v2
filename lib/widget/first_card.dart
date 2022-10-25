@@ -33,23 +33,7 @@ class FirstCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Positioned(
-                //   top: 8,
-                //   right: 8,
-                //   child: GestureDetector(
-                //     onTap: () {},
-                //     child: const CircleAvatar(
-                //         backgroundColor: Colors.white,
-                //         radius: 17,
-                //         child: ImageIcon(
-                //           AssetImage(
-                //             "assets/bookmark-inactive.png",
-                //           ),
-                //           size: 20,
-                //           color: Colors.black,
-                //         )),
-                //   ),
-                // ),
+                
                 Positioned(
                     top: 8,
                     left: 8,

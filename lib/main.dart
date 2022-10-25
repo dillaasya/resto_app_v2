@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:resto_app_v2/data/api/api_service.dart';
 import 'package:resto_app_v2/data/provider/list_provider.dart';
 import 'package:resto_app_v2/ui/detail_page.dart';
+import 'package:resto_app_v2/ui/list_all_page.dart';
 import 'package:resto_app_v2/ui/navbar_page.dart';
 import 'package:resto_app_v2/ui/search_page.dart';
 import 'package:resto_app_v2/ui/setting_page.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           initialRoute: NavbarPage.routeName,
           routes: {
             NavbarPage.routeName: (context) => const NavbarPage(),
+            ListAllPage.routeName: (context) => const ListAllPage(),
             SettingPage.routeName: (context) => const SettingPage(),
             SearchPage.routeName: (context) => const SearchPage(),
             DetailPage.routeName: (context) => DetailPage(

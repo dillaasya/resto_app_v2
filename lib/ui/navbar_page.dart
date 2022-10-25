@@ -17,10 +17,6 @@ class NavbarPage extends StatefulWidget {
 }
 
 class _NavbarPageState extends State<NavbarPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   int _selectedIndex = 0;
 

@@ -220,7 +220,7 @@ class _DetailPageState extends State<DetailPage> {
           } else if (state.state == ResultState.noData) {
             return Center(child: Text(state.message));
           } else if (state.state == ResultState.error) {
-            return Center(child: Text(state.message));
+            return Scaffold(body: Center(child: Text(state.message)));
           } else {
             return const Center(child: Text(''));
           }
