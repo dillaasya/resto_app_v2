@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:resto_app_v2/data/api/api_service.dart';
+import 'package:provider/provider.dart';
+import 'package:resto_app_v2/data/model/resto_review.dart';
+import 'package:resto_app_v2/data/provider/review_provider.dart';
 import 'package:resto_app_v2/ui/detail_page.dart';
 
 class AddNewReview extends StatefulWidget {
@@ -17,11 +19,33 @@ class AddNewReview extends StatefulWidget {
   final String id;
   final bool mounted;
 
+  static const routeName = '/addreview_page';
+
   @override
   State<AddNewReview> createState() => _AddNewReviewState();
 }
 
 class _AddNewReviewState extends State<AddNewReview> {
+  Future<void> post() async {
+    var provider = Provider.of<ReviewProvider>(context, listen: false);
+    CustomerReviews customerReviews = CustomerReviews(
+        name: widget.name.text,
+        id: widget.id,
+        review: widget.message.text,
+        date: DateTime.now().toString());
+
+    await provider.postReview(customerReviews);
+    if (provider.isback && mounted) {
+      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, DetailPage.routeName,
+          arguments: widget.id);
+    } else if (provider.isback == false) {
+      print('NAH LOH EROR, ID REVIEW : ${widget.id}');
+    } else {
+      print('I DONT KNOW');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -91,17 +115,8 @@ class _AddNewReviewState extends State<AddNewReview> {
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xffE23E3E),
                 ),
-                onPressed: () async {
-                  await ApiService().postReview(
-                      widget.id, widget.name.text, widget.message.text);
-
-                  widget.name.clear();
-                  widget.message.clear();
-                  if (!widget.mounted) return;
-
-                  Navigator.pop(context);
-                  Navigator.pushReplacementNamed(context, DetailPage.routeName,
-                      arguments: widget.id);
+                onPressed: () {
+                  post();
                 },
                 child: Text('Add',
                     style: GoogleFonts.poppins(

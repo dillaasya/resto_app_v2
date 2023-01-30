@@ -28,15 +28,14 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     String id = widget.id;
     TextEditingController name = TextEditingController();
-    TextEditingController message = TextEditingController();
+    TextEditingController review = TextEditingController();
 
-    void showBottomSheet() {
+    showBottomSheet() {
       showModalBottomSheet(
           isScrollControlled: true,
           context: context,
           builder: (builder) {
-            return AddNewReview(
-                name: name, message: message, id: id, mounted: mounted);
+            return AddNewReview(name: name, message: review, id: id, mounted: mounted);
           });
     }
 
@@ -78,6 +77,9 @@ class _DetailPageState extends State<DetailPage> {
                               onTap: () {
                                 showBottomSheet();
                                 setState(() {});
+
+                                /*Navigator.pushNamed(context, ReviewPage.routeName,
+                                    arguments: widget.id);*/
                               },
                               child: const CircleAvatar(
                                 backgroundColor: Colors.white,

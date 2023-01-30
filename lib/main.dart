@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resto_app_v2/data/api/api_service.dart';
 import 'package:resto_app_v2/data/provider/list_provider.dart';
+import 'package:resto_app_v2/data/provider/review_provider.dart';
 import 'package:resto_app_v2/ui/detail_page.dart';
 import 'package:resto_app_v2/ui/list_all_page.dart';
 import 'package:resto_app_v2/ui/navbar_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeNotifier()),
         ChangeNotifierProvider(
             create: (_) => ListProvider(apiService: ApiService())),
+        ChangeNotifierProvider(create: (_)=> ReviewProvider(apiService: ApiService())),
       ],
       child: Consumer<ThemeNotifier>(
         builder: (context, theme, child) => MaterialApp(

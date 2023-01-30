@@ -15,14 +15,14 @@ class RestaurantReview {
 
   bool error;
   String message;
-  List<CustomerReview> customerReviews;
+  List<CustomerReviews> customerReviews;
 
   factory RestaurantReview.fromJson(Map<String, dynamic> json) =>
       RestaurantReview(
         error: json["error"],
         message: json["message"],
-        customerReviews: List<CustomerReview>.from(
-            json["customerReviews"].map((x) => CustomerReview.fromJson(x))),
+        customerReviews: List<CustomerReviews>.from(
+            json["customerReviews"].map((x) => CustomerReviews.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -33,8 +33,8 @@ class RestaurantReview {
       };
 }
 
-class CustomerReview {
-  CustomerReview({
+class CustomerReviews {
+  CustomerReviews({
     required this.name,
     required this.id,
     required this.review,
@@ -46,7 +46,7 @@ class CustomerReview {
   String review;
   String date;
 
-  factory CustomerReview.fromJson(Map<String, dynamic> json) => CustomerReview(
+  factory CustomerReviews.fromJson(Map<String, dynamic> json) => CustomerReviews(
         name: json["name"],
         id: json["id"],
         review: json["review"],
@@ -54,6 +54,7 @@ class CustomerReview {
       );
 
   Map<String, dynamic> toJson() => {
+        "id" : id,
         "name": name,
         "review": review,
         "date": date,
